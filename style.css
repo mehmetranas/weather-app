@@ -71,3 +71,25 @@ div.wind-image{
     padding-top: 5%;
     padding-left: 2%;
 }
+
+@media (max-width:760px) {
+    .wheather-image{
+        width: 50%;
+        margin: auto;
+    }
+
+    .wind-image img{
+        margin-left: 50%;
+    }
+
+    .location{
+        border-top: solid 2px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .location h3{
+        width: 60%;
+        margin: auto;
+    }
+}
