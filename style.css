@@ -72,6 +72,11 @@ div.wind-image{
     padding-left: 2%;
 }
 
+.checkbox{
+    position: absolute;
+    right: 0;
+}
+
 @media (max-width:760px) {
     .wheather-image{
         width: 50%;
