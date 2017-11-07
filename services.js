@@ -23,7 +23,6 @@ var googleService = function (coords,key,callback) {
         url:service,
         success:function (response) {
             callback(response);
-            console.log(response)
         },
         error: function () {
             console.log("Error");
