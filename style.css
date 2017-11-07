@@ -76,6 +76,10 @@ div.wind-image{
 }
 
 @media (max-width:760px) {
+    .degree h2 {
+        font-size: 2.2rem;
+    }
+
     .weather-image{
         width: 50%;
         margin: auto;
@@ -94,5 +98,6 @@ div.wind-image{
     .location h3{
         width: 60%;
         margin: auto;
+        font-size:1rem ;
     }
 }

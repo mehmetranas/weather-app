@@ -3,4 +3,7 @@ $(document).ready(function () {
     tooltip();
     getLocationService(setLocation);
     getLocationService(getweather);
+    convertDegree();
+
+
 });
