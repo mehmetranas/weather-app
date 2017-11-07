@@ -15,6 +15,15 @@ var tooltip = function () {
   });
 };
 
+var setLocation = function (coords) {
+    var key = "AIzaSyBRLZtMjEBhcpe5X-wcldEXK4K6j3K2Yv4";
+    var callback = function (response) {
+        var location = response["results"][0]["address_components"][4]["long_name"];
+        $(".location h3").text(location);
+    }
+    googleService(coords,key,callback);
+};
 
-var wheatherService
+var getWheather = function () {
 
+}

@@ -1,11 +1,10 @@
-var getLocationService = function (googleService, setLocation) {
-    var key = "AIzaSyBRLZtMjEBhcpe5X-wcldEXK4K6j3K2Yv4";
+var getLocationService = function (setLocation) {
     var callback = function(location) {
         var data = {
             lat:location.coords.latitude,
             long:location.coords.longitude
         };
-        googleService(data,key,setLocation)
+        setLocation(data);
     };
 
     if(navigator.geolocation){
@@ -15,19 +14,25 @@ var getLocationService = function (googleService, setLocation) {
     }
 };
 
-var googleService = function (data,key,setLocation) {
-    var lat = data.lat;
-    var long = data.long;
+var googleService = function (coords,key,callback) {
+    var lat = coords.lat;
+    var long = coords.long;
     var service = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat +"," + long +" &key=" + key;
     return $.ajax({
         method:"GET",
         url:service,
         success:function (response) {
-            var location = response["results"][0]["address_components"][4]["long_name"];
-            setLocation(location);
+            callback(response);
         },
         error: function () {
             console.log("Error");
         }
     });
 };
+var wheatherService = function () {
+
+    var url = "https://fcc-weather-api.glitch.me/api/current?lat=" + lat + "&lon=" + long;
+    $.get(url).done(function (data) {
+        console.log(data)
+    });
+}
