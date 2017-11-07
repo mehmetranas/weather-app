@@ -6,5 +6,5 @@ $(document).ready(function () {
         $(".location h3").text(location);
     };
 
-    getLocation(googleService,setLocation);
+    getLocationService(googleService,setLocation);
 });
