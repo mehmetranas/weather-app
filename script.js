@@ -1,5 +1,6 @@
 var degreeInCel;
 var degreeInFah;
+var weatherId;
 
 $.fn.extend({
     animateCss: function (animationName) {
@@ -33,17 +34,27 @@ var setLocation = function (coords) {
     var callback = function (response) {
         var location = response["results"][0]["address_components"][3]["long_name"];
         $(".location h3").text(location);
-    }
+    };
     googleService(coords,key,callback);
 };
 
 var roundTemp = function (data) {
     return (parseInt(data)*2)/2;
-}
+};
 
+var setImage = function(id) {
+  var num = String(id).charAt(0);
+  var url = "images/2.jpeg";
+
+  if(id)
+  var url = "images/" + num + ".jpeg";
+
+    $("body").css("background-image","url('"+ url + "')");
+};
 var getweather = function (coords) {
   var  callback = function (response) {
       var weather = {
+          id: response.weather[0].id,
           temp: response.main.temp,
           windDeg: response.wind.deg,
           windSpeed: response.wind.speed,
@@ -57,6 +68,7 @@ var getweather = function (coords) {
     $(".weather-image img").attr("src",weather.weatherIcon);
     $(".wind>span").eq(1).text(weather.windSpeed);
     $(".wind>span").eq(3).text(weather.windDeg);
+    setImage(weather.id);
   };
   weatherService(coords,callback)
 };

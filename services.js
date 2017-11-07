@@ -1,14 +1,14 @@
-var getLocationService = function (setLocation) {
-    var callback = function(location) {
+var getLocationService = function (callback) {
+    var getLocation = function(location) {
         var data = {
             lat:location.coords.latitude,
             long:location.coords.longitude
         };
-        setLocation(data);
+        callback(data);
     };
 
     if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(callback);
+        navigator.geolocation.getCurrentPosition(getLocation);
     }else {
         alert("Geolocation is not supported");
     }
@@ -35,4 +35,16 @@ var weatherService = function (coords,callback) {
     $.get(url).done(function (data) {
         callback(data);
     });
+};
+
+
+var imageService = function () {
+
+    switch (id[0]){
+        case 2:
+            console.log("Thunderstrom");
+            break;
+        case 4:
+            console.log("Rain")
+    }
 };
