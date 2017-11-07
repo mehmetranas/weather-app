@@ -34,12 +34,10 @@ body,html{
     font-size: 3.2rem;
     color: white;
 }
-.state h5{
-    /*background-color: white;*/
-    /*border-radius: 24px;*/
+.state h5,
+.state h6{
     color:white;
     font-style: italic;
-    padding: 10px;
     margin-left: 20px;
     font-size: 1.12rem;
 }
@@ -78,7 +76,7 @@ div.wind-image{
 }
 
 @media (max-width:760px) {
-    .wheather-image{
+    .weather-image{
         width: 50%;
         margin: auto;
     }

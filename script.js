@@ -24,6 +24,23 @@ var setLocation = function (coords) {
     googleService(coords,key,callback);
 };
 
-var getWheather = function () {
+var getweather = function (coords) {
+  var  callback = function (response) {
+      var weather = {
+          temp: response.main.temp,
+          windDeg: response.wind.deg,
+          windSpeed: response.wind.speed,
+          weatherMain: response.weather[0].main,
+          weatherDesc: response.weather[0].description,
+          weatherIcon: response.weather[0].icon
+      };
 
-}
+    $(".degree h2").html(weather.temp + " &#8451");
+    $(".weather-desc h5").text(weather.weatherMain);
+    $(".weather-desc h6").text("(" + weather.weatherDesc + ")");
+    $(".weather-image img").attr("src",weather.weatherIcon);
+    $(".wind>span").eq(1).text(weather.windSpeed);
+    $(".wind>span").eq(3).text(weather.windDeg);
+  };
+  weatherService(coords,callback)
+};
